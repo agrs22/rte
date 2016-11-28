@@ -1,4 +1,4 @@
-<?php include 'map.php';?><!DOCTYPE html>
+<?php include 'include/map.php';?><!DOCTYPE html>
 <html lang="en">
 
 <head>
