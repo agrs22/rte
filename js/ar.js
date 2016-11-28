@@ -1,3 +1,7 @@
-function showDiv() {
-   document.getElementById('welcomeDiv').style.display = "block";
-}
+$(document).ready(function(){
+    $("#map").hide();
+    $("header").click(function(){
+        $("#map").show();
+		$("header").hide();
+    });
+});
