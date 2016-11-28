@@ -1,4 +1,4 @@
-<?php include 'include/map.php';?><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -31,8 +31,6 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-	<?=$MAP_OBJECT->getHeaderJS();?>
-	<?=$MAP_OBJECT->getMapJS();?>
 
 </head>
 
@@ -81,12 +79,25 @@
         </div>
     </header>
 
-	<div id="map" class="mymap">
-	<?=$MAP_OBJECT->printOnLoad();?> 
-	<?=$MAP_OBJECT->printMap();?>
-	<?=$MAP_OBJECT->printSidebar();?>
+	<div id="map" class="map">
         
 	</div>
+	<script>
+      function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJG_vxmfqBZ1JQ_6Qj3tGpwdvPxXqkc8k&callback=initMap">
+    </script>
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>
 
