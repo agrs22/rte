@@ -1,6 +1,6 @@
 <?php
-include_once("../include/GoogleMap.php");
-include_once("../include/JSMin.php");
+include_once("GoogleMap.php");
+include_once("JSMin.php");
 
 $MAP_OBJECT = new GoogleMapAPI(); $MAP_OBJECT->_minify_js = isset($_REQUEST["min"])?FALSE:TRUE;
 $MAP_OBJECT->setDSN("mysql://user:password@localhost/db_name");
