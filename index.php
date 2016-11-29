@@ -56,7 +56,7 @@
 </div>
 
 
-  <div id="floatingRectangle"><span style="font-size:40px;cursor:pointer;color:white" onclick="openNav()">&#9776;</span></div>
+  <div id="floatingRectangle"><span style="font-size:380%;cursor:pointer;color:white" onclick="openNav()">&#9776;</span></div>
     
     
 	
