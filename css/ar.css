@@ -1,12 +1,20 @@
  #map {
-        height: 600px;
-        width: 100%;
-		position: inherit;
-       }
-	   body {
-		   background: #17263c;
-	   }
-	   body {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    /* z-index: 2; */
+    top: 0;
+    left: 0;
+    /* background-color: #111; */
+    overflow-x: hidden;
+    transition: 0.5s;
+    /* padding-top: 60px; */
+    /* height: 100%; */
+    width: 100%;
+    position: fixed !important;
+}
+body {
+	background: #17263c;
     font-family: "Lato", sans-serif;
     transition: background-color .5s;
 }
