@@ -1,119 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
+<?php include 'map.php';?>
+<?php include 'js/gmaps.js';?>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Creative - Start Bootstrap Theme</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-
-    <!-- Plugin CSS -->
-    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
-
-    <!-- Theme CSS -->
-    <link href="css/creative.min.css" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/ar.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+<body>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  
+	<div class="container">
+  <h2>RTE MAPS:</h2><h5>powerd by: TRANSEN</h5>
+  <form class="form-horizontal" method="post">>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="lat">Latitude:</label>
+      <div class="col-sm-10">
+        <input type="lat" class="form-control" name="lat" placeholder="Enter Latitude">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="lon">Longitude:</label>
+      <div class="col-sm-10">          
+        <input type="lon" class="form-control" name="lon" placeholder="Enter Longitude">
+      </div>
+    </div>
+	<div class="form-group">
+      <label class="control-label col-sm-2" for="latdes">Destination Latitude:</label>
+      <div class="col-sm-10">
+        <input type="latdes" class="form-control" name="latdes" placeholder="Enter Destination Latitude">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="londes">Destination Longitude:</label>
+      <div class="col-sm-10">          
+        <input type="londes" class="form-control" name="londes" placeholder="Enter Destination Longitude">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="rad">Radius:</label>
+      <div class="col-sm-10">          
+        <input type="rad" class="form-control" name="rad" placeholder="Enter Radius">
+      </div>
+    </div>
+    <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+</div>
 
-<body id="page-top">
 
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Start Bootstrap</a>
-            </div>
+  <div id="floatingRectangle"><span style="font-size:40px;cursor:pointer;color:white" onclick="openNav()">&#9776;</span></div>
+    
+    
+	
+	<div id="map" class="mapclass"></div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a class="page-scroll" href="#about">About</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#services">Services</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#portfolio">Portfolio</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
+	<script>function openNav() {
+    document.getElementById("mySidenav").style.width = "100%";
+}
 
-    <header>
-        <div class="header-content">
-            <div class="header-content-inner">
-                <h1 id="homeHeading">Your Favorite Source of Free Bootstrap Themes</h1>
-                <hr>
-                <p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>
-               
-            </div>
-        </div>
-    </header>
-
-	<div id="map" class="map">
-        
-	</div>
-	<script>
-      function initMap() {
-        var uluru = {lat: -25.363, lng: 131.044};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: uluru
-        });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
-      }
-    </script>
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}</script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJG_vxmfqBZ1JQ_6Qj3tGpwdvPxXqkc8k&callback=initMap">
     </script>
-    <!-- jQuery -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
-    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-
-    <!-- Theme JavaScript -->
-    <script src="js/creative.min.js"></script>
-	<script src="js/ar.js"></script>
-	
 
 </body>
-
 </html>
+
