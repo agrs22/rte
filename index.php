@@ -19,13 +19,13 @@
     <div class="form-group">
       <label class="control-label col-sm-2" for="lat">Latitude:</label>
       <div class="col-sm-10">
-        <input type="lat" class="form-control" name="lat" placeholder="Enter Latitude">
+        <input type="lat" class="form-control" name="lat" id="lat" placeholder="Enter Latitude">
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="lon">Longitude:</label>
       <div class="col-sm-10">          
-        <input type="lon" class="form-control" name="lon" placeholder="Enter Longitude">
+        <input type="lon" class="form-control" name="lon" id="lon" placeholder="Enter Longitude">
       </div>
     </div>
 	<div class="form-group">
@@ -68,7 +68,14 @@
 
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
-}</script>
+}
+navigator.geolocation.getCurrentPosition(function(position) {
+
+document.getElementById("lat").value = position.coords.latitude;
+document.getElementById("lon").value = position.coords.longitude;
+
+});
+</script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJG_vxmfqBZ1JQ_6Qj3tGpwdvPxXqkc8k&callback=initMap">
     </script>

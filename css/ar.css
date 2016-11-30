@@ -29,6 +29,9 @@ body {
     right: 2em;
 }
 h2{color:white;}
+h5{color:white;}
+label{color:white;}
+p{color:white;}
 .sidenav {
     height: 100%;
     width: 0;
